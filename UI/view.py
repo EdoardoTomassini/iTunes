@@ -14,8 +14,7 @@ class View(ft.UserControl):
         # graphical elements
         self._title = None
         self.txt_name = None
-        self.btn_hello = None
-        self.txt_result = None
+        self._txt_result = None
         self.txt_container = None
 
     def load_interface(self):
@@ -34,7 +33,7 @@ class View(ft.UserControl):
         self._page.controls.append(row1)
 
         #ROW2
-        self._ddAlbum = ft.Dropdown(label="Album", on_change=self._controller.getSelectedAlbum)
+        self._ddAlbum = ft.Dropdown(label="Album")
         self._btnAnalisiComp = ft.ElevatedButton(text = "Analisi Componente.",
                                                  on_click=self._controller.handleAnalisiComp)
 
@@ -55,8 +54,8 @@ class View(ft.UserControl):
         self._page.controls.append(row3)
 
         # List View where the reply is printed
-        self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
-        self._page.controls.append(self.txt_result)
+        self._txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
+        self._page.controls.append(self._txt_result)
         self._page.update()
 
     @property
